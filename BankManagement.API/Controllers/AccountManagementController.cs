@@ -9,7 +9,7 @@ namespace BankManagement.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    // [GlobalExceptionHandler]
+    [GlobalExceptionHandler]
     [ServiceFilter(typeof(AccountValidationFilterAttribute))]
     [ServiceFilter(typeof(UserValidationFilterAttribute))]
     public class AccountManagementController : ControllerBase
@@ -32,14 +32,14 @@ namespace BankManagement.API.Controllers
             return Ok(accounts);
         }
 
-        // [HttpGet]
-        // [Authorize(Roles = "Admin, Customer")]
-        // public async Task<ActionResult<AccountOverviewDTO>> GetMyAccountOverview()
-        // {
-        //     _logger.LogInformation("Retrieving account overview for the current user.");
-        //     var accountOverview = await _accountServices.GetMyAccountOverviewAsync();
-        //     return Ok(accountOverview);
-        // }
+        [HttpGet]
+        [Authorize(Roles = "Admin, Customer")]
+        public async Task<ActionResult<AccountOverviewDTO>> GetMyAccountOverview()
+        {
+            _logger.LogInformation("Retrieving account overview for the current user.");
+            var accountOverview = await _accountServices.GetMyAccountOverviewAsync();
+            return Ok(accountOverview);
+        }
 
         [HttpPost]
         [Authorize(Roles = "Admin, Customer")]
