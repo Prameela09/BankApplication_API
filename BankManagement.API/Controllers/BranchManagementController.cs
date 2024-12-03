@@ -11,7 +11,7 @@ namespace BankManagement.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    // [GlobalExceptionHandler]
+    [GlobalExceptionHandler]
     [ServiceFilter(typeof(BranchValidationFilterAttribute))]
     public class BranchManagementController : ControllerBase
     {
