@@ -2,6 +2,7 @@ using BankManagement.Services.NotificationService.DTOs;
 using BankManagement.Services.NotificationServices.Interfaces;
 using BankManagement.Services.UserServices.Interfaces;
 using BankManagement.Utilities.HelperClasses;
+using BankManagement.API.Filters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace BankManagement.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[GlobalExceptionHandler]
 public class NotificationManagementController : ControllerBase
 {
     private readonly INotificationService _notificationService;
