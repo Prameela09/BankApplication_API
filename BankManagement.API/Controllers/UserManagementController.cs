@@ -10,7 +10,7 @@ namespace BankManagement.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
-// [GlobalExceptionHandler]
+[GlobalExceptionHandler]
 [ServiceFilter(typeof(UserValidationFilterAttribute))]
 public class UserManagementController : ControllerBase
 {
